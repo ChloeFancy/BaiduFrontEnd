@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>任务五：零基础HTML及CSS编码（二）</title>
+	<style type="text/css">
+	*{
+		margin:0;
+		padding:0;
+		border:0;
+		
+	}
+
+	/*页首*/
+	header{
+		background-image: url(backgroundcolor.jpg);
+	}
+	img.head{
+		margin-left: 40px;
+	}
+	div.wrapper{
+		display:table;
+		position: absolute;
+		left:1000px;
+		top:15px;
+
+		background-image: url(backgroundcolor.jpg);
+	}
+	ul.header{float: right;}
+
+	li.header{font-size:10px;float:left;width:80px;}
+
+	li.header span{
+		color: white;
+	}
+
+	/*页脚*/
+	footer{
+		text-align: center;
+		background-image: url(footer.jpg);
+		height: 60px;
+		width:100%;
+		padding-top: 20px;
+	}
+	div#foot{
+		color:white;
+	}
+
+	/*右主体*/
+	.sidebox{
+		width:360px;
+		background-color: white;
+		box-shadow: 2px 2px 0px grey;
+		border: 1px solid #999;
+		padding: 20px;
+		float: right;
+	}
+
+	.sidebox_title{
+		font-size: 15px;
+		font-weight: bold;
+		height:30px;
+		border-left: 3px solid #999;
+		padding-left: 10px;  
+		padding-top: 10px;
+		margin:0 auto;
+	}
+	.right_content{
+		margin-top:10px;
+	}
+
+	div.sub{
+		margin-bottom:20px;
+	}
+
+	div#side{
+		display:inline-block;
+	}
+
+	div#side.left{
+		font-size: 13px;
+		width:30%;
+		text-align: right;
+		margin-right: 10px;
+	}
+	div#hint{
+			color:grey;
+			font-size: 10px;
+	}
+	textarea#grey{
+		border:1px solid grey;
+		width:200px;
+		height:50px;
+		max-width: 400px;
+	}
+
+	.submit_box{			
+		text-align: center;
+	}
+	.submit{
+		text-align: center;
+		color: white;
+		background: blue;
+		width:90%;
+		height: 50px;
+		border-radius: 10px;
+	}
+
+	/*左主体*/
+	.leftpart{
+		margin-left:0px;
+		margin-right:420px;
+		min-width: 400px;
+	}
+	div#card{
+		background-color: white;
+		border: 1px solid #999;
+		padding: 30px 20px 30px 20px;
+		border-color: 2px solid black;
+		box-shadow: 2px 2px 0px gray;
+		margin-bottom: 20px;
+	}
+
+	h2{
+		margin-bottom: 20px;
+	}
+	h4{
+		margin-bottom: 15px;
+		color:grey;
+	}
+	h6#message{
+		margin-bottom: 15px;
+		color:grey;
+		font-size: 10px;
+	}
+	div#lines{
+		line-height:1.5;
+	}
+	img#image{
+		margin-bottom: 20px;
+		margin-top: 20px;
+		width:300px;
+	}
+
+	.imgbox{
+		width:110px;
+		height:110px;
+		padding: 10px;
+		text-align: center;
+		border: 1px solid #999;
+		float:left;
+		margin:10px;
+	}
+
+	.pic{
+		width:100px;
+		margin-top: 20px;
+	}
+
+	.clear{
+		clear: both;
+	}
+
+	.tb{
+		width:100%;
+	}
+
+	td{
+		padding: 5px;
+	}
+
+	.moveol{
+		margin-left: 20px;
+	}
+
+	/*主体*/
+	.mainbody{
+		padding: 20px;
+		background-color: #eee;
+	}
+
+
+	</style>
+</head>
+
+<body>
+
+	<header>
+		<img src="baidu.png" class="head">
+		<div class="wrapper">
+			<ul class="header">
+				<li class="header"><a href="http://www.w3school.com.cn" id="director"><span>导航链接一</span></a></li>
+				<li class="header"><a href="http://www.w3school.com.cn" id="director"><span>导航链接二</span></a></li>
+				<li class="header"><a href="http://www.w3school.com.cn" id="director"><span>导航链接三</span></a></li>
+				<li class="header"><a href="http://www.w3school.com.cn" id="director"><span>导航链接四</span></a></li>
+			</ul>
+		</div>
+	</header>
+
+	<div class="mainbody"> 
+
+		<div class="sidebox">
+			<p class="sidebox_title">这里以后是一个侧栏，这是侧栏的标题</p>
+				<div class="right_content">
+					<form>
+					<div class="sub">
+						<div id="side" class="left">请输入邮箱地址<br>&nbsp;</div>
+						<div id="side">
+							<div><input type="text" value="这是一个文本输入框" id="grey"></div>
+							<div id="hint">邮箱地址请按要求格式输入</div>
+						</div>
+					</div>
+
+					<div class="sub">
+						<div id="side" class="left">请输入密码</div>
+						<div id="side"><input type="password" value="这是一个文本输入框" id="grey"></div>
+					</div>
+
+					<div class="sub">
+						<div id="side" class="left">请重复输入密码<br>&nbsp;</div>
+						<div id="side">
+							<div><input type="password" value="这是一个文本输入框" id="grey"></div>
+							<div id="hint">密码请为6-16位英文数字</div>
+						</div>
+					</div>
+					</form>
+
+					<form>
+						<div>
+							<div id="side" class="left">性别</div>
+							<div id="side">
+								<input name="sex" type="radio">男
+								<input name="sex" type="radio">女
+							</div>
+						</div>
+
+						<div>
+							<div id="side" class="left">城市</div>
+							<div id="side">
+								<select name="city">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+								</select>
+							</div>
+						</div>
+					
+						<div>
+							<div id="side" class="left">爱好</div>
+							<div id="side">
+								<input type="checkbox" name="hobby">运动
+								<input type="checkbox" name="hobby">科学
+								<input type="checkbox" name="hobby">艺术
+							</div>
+						</div>
+				
+						<div>
+							<div id="side" class="left" style="position:relative;bottom: 37px;">个人描述</div>
+							<div id="side">
+								<textarea id="grey">这是一个多行输入框</textarea>
+							</div>
+						</div>
+				
+						<div class="submit_box">
+							<div><input type="submit" name="submit" value="确认提交" class="submit"></div>
+						</div>
+
+					</form>
+				</div>
+		</div>
+
+		<div class="leftpart">
+			<div id="card">
+				<h2>文章一级标题</h2>
+				<h4>文章二级标题</h4>
+				<h6 id="message">文章作者&nbsp;文章发表时间</h6>
+				<div id="lines">
+					<div style="text-indent: 2em;">这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落.</div>
+					换行了这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了.<br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，<a href="http://www.baidu.com" target="_blank">这里有一个链接，打开新窗口，连接到百度</a>，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落.
+				</div>
+
+				<div><img src="task.png" id="image"></div>
+
+				<div id="lines">
+				<div style="text-indent: 2em;">这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落.</div>
+				换行了这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了.<br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，<a href="http://www.baidu.com" target="_blank">这里有一个链接，打开新窗口，连接到百度</a>，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落.
+				</div>
+			</div>
+
+			<div id="card">
+				<h2>文章一级标题</h2>
+				<h4>文章二级标题</h4>
+				<h6 id="message">文章作者&nbsp;文章发表时间</h6>
+				<div id="lines">
+					<div style="text-indent: 2em;">这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落.</div>
+					换行了这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了.<br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，<a href="http://www.baidu.com" target="_blank">这里有一个链接，打开新窗口，连接到百度</a>，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落.
+				</div>
+
+				<div><img src="task.png" id="image"></div>
+
+				<div id="lines">
+				<div style="text-indent: 2em;">这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落.</div>
+				换行了这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，换行了.<br>这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，<a href="http://www.baidu.com" target="_blank">这里有一个链接，打开新窗口，连接到百度</a>，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落，这是一个很长很长的段落.
+				</div>
+
+				<ul style="list-style: none;">
+					<li>列表项目1</li>
+					<li>列表项目2</li>
+					<li>列表项目3</li>
+				</ul>
+			</div>
+
+			<div id="card">
+				<h2>图片</h2>
+				
+				<div class="imgbox">好看的图片<img src="task.png" class="pic"></div>
+				<div class="imgbox">好看的图片<img src="task.png" class="pic"></div>
+				<div class="imgbox">好看的图片<img src="task.png" class="pic"></div>
+				<div class="imgbox">好看的图片<img src="task.png" class="pic"></div>
+				<div class="imgbox">好看的图片<img src="task.png" class="pic"></div>
+				<div class="imgbox">好看的图片<img src="task.png" class="pic"></div>
+				<div class="imgbox">好看的图片<img src="task.png" class="pic"></div>
+				<div class="imgbox">好看的图片<img src="task.png" class="pic"></div>
+				<div class="imgbox">好看的图片<img src="task.png" class="pic"></div>
+				<div class="imgbox">好看的图片<img src="task.png" class="pic"></div>
+				<div class="clear"></div>
+			</div>
+
+			<div id="card">
+				<h2>最后一篇文章一级标题</h2>
+				<h4>文章二级标题</h4>
+				<h6 id="message">文章作者 文章发表时间</h6>
+					<ol class="moveol">
+						<li>排名1</li>
+						<li>排名2</li>
+						<li>排名3</li>
+					</ol>
+					<p>下面是一个表格，给表格加了一个border=“1”</p>
+					<table class="tb">
+						<tr>
+							<td style="background-image: url(backgroundcolor.jpg);color:white">表头</td>
+							<td style="background-image: url(backgroundcolor.jpg);color:white">表头</td>
+							<td style="background-image: url(backgroundcolor.jpg);color:white">表头</td>
+						</tr>
+						<tr>
+							<td>表内容单元格</td>
+							<td>表内容单元格</td>
+							<td><a href="www.baidu.com">操作</a></td>
+						</tr>
+						<tr>
+							<td>表内容单元格</td>
+							<td>表内容单元格</td>
+							<td><a href="www.baidu.com">操作</a></td>
+						</tr>
+						<tr>
+							<td style="background-image: url(backlightgrey.jpg);font-weight:bold;">总计</td>
+							<td colspan="2" style="background-image: url(backlightgrey.jpg);font-weight:bold;">1000</td>
+						</tr>
+					</table>
+			</div>			
+
+		</div>
+
+	</div>
+
+
+
+	<footer><div id="foot">版权所有</div></footer>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>任务四：定位和居中问题</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	body{
+		margin: 0px;
+		padding: 0px;
+
+	}
+	.rectangle{
+		width: 400px;
+		height: 200px;
+		background-color: #ccc;
+		position: absolute;
+		top:50%;
+		left:50%;
+		margin:-100px 0 0 -200px;
+	}
+	.circle1{
+		height:50px;
+		width: 50px;
+		border-bottom-right-radius:50px;
+		position: absolute;
+		left: 0px;
+		top:0px;
+		background-color: #fc0;
+	}
+	.circle2{
+		height:50px;
+		width: 50px;
+		border-top-left-radius:50px; 
+		position: absolute;
+		right: 0px;
+		bottom: 0px;
+		background-color: #fc0;
+	}
+
+	</style>
+</head>
+<body>
+
+<div class="rectangle">
+<div class="circle1"></div>
+<div class="circle2"></div>
+
+</div>
+
+</body>
+</html>
