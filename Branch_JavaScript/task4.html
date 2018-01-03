@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IFE JavaScript Task 04</title>
+	<meta charset="UTF-8">
+	<!--
+		meta，元信息
+	-->
+</head>
+<body>
+	<label for='num_input'>Input：</label>
+	<input type="text" name="num" id="num_input">
+	<button type="button" id="left_in">左侧入</button>
+	<button type="button" id="right_in">右侧入</button>
+	<button type="button" id="left_out">左侧出</button>
+	<button type="button" id="right_out">右侧出</button>
+
+	<ul id="queue"></ul>
+	<script type="text/javascript" src="event.js"></script>
+	<script type="text/javascript" charset="UTF-8">
+	var arr = [];
+	var input = document.getElementById('num_input');
+	var list = document.getElementById('queue');
+
+	function createItem(value){
+		var txt = document.createTextNode(value);
+		var item = document.createElement('li');
+		item.style.cssText = "display:inline-block;width:50px;height:50px;line-height:50px;text-align:center;background-color:red;color:white;list-style:none;margin:5px";
+		item.appendChild(txt);
+		return item;
+	}
+
+	function adjustArr(mode){
+		switch(mode){
+			case 'leftin':list.insertBefore(createItem(arr[0]),list.firstChild);break;
+			case 'rightin':list.appendChild(createItem(arr[arr.length-1]));break;
+			case 'leftout':list.removeChild(list.firstChild);break;
+			case 'rightout':list.removeChild(list.lastChild);break;
+		}
+	}
+
+	function Out(out,mode){
+		if(out!=undefined){
+			alert((mode=='left'?'左':'右')+'侧出：'+out);
+			adjustArr(mode+'out');
+		}else{
+			alert('当前队列中無數字！');
+		}
+	}
+
+	function inputDetect(){
+		if(!input.value){
+			alert('输入不能为空！');
+		}else if(typeof input.value=='number'){
+			alert('输入不是数字！');
+			input.value=null;
+		}
+	}
+
+	(function() {
+		var leftin = document.getElementById('left_in');
+		var leftout = document.getElementById('left_out');
+		var rightin = document.getElementById('right_in');
+		var rightout = document.getElementById('right_out');
+
+
+		addHandler(leftin,'click',function(event){
+			inputDetect();
+			if(input.value){
+				arr.unshift(input.value);
+				input.value=null;
+				adjustArr('leftin');
+			}
+		});
+
+
+		addHandler(leftout,'click',function(event){
+			Out(arr.shift(),'left');
+		});
+
+		addHandler(rightout,'click',function(event){
+			Out(arr.pop(),'right');
+		});
+
+		addHandler(rightin,'click',function(event){
+			inputDetect();
+			if(input.value){
+				arr.push(input.value);
+				input.value=null;
+				adjustArr('rightin');
+			}
+		});
+
+	})();
+
+	</script>
+</body>
+</html>
