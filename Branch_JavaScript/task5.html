@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IFE JavaScript Task 05</title>
+	<meta charset="UTF-8">
+	<!--
+		meta，元信息
+	-->
+</head>
+<body>
+
+	<label for='num_input'>Input：</label>
+	<input type="text" name="num" id="num_input">
+	<button type="button" id="left_in">左侧入</button>
+	<button type="button" id="right_in">右侧入</button>
+	<button type="button" id="left_out">左侧出</button>
+	<button type="button" id="right_out">右侧出</button>
+	<button type='button' id='sort'>排序</button>
+	<button type='button' id='visual'>排序可视化</button>
+
+	<div id="queue" style="height: 120px;position: relative;">
+
+	</div>
+	<script type="text/javascript" src="event.js"></script>
+	<script type="text/javascript" charset="UTF-8">
+	var arr = [];
+	var input = document.getElementById('num_input');
+	var list = document.getElementById('queue');
+
+	function Item(value){
+		var item=document.createElement('div');
+		item.style.cssText = "background-color:red;color:white;margin:2px;display:inline-block;vertical-align:bottom";
+		item.style.width = document.body.clientWidth/60 +'px';
+		item.style.marginTop = (120-value)+'px';
+		item.style.height = value+'px';
+		item.style.lineHeight = value+'px';
+		return item;
+	}
+	function createItem(value){
+		var txt = document.createTextNode(value);
+		var item = Item(value);
+		item.appendChild(txt);
+		return item;
+	}
+
+	function adjustArr(mode){
+		if(arr.length<=60){
+			switch(mode){
+				case 'leftin':list.insertBefore(createItem(arr[0]),list.firstChild);break;
+				case 'rightin':list.appendChild(createItem(arr[arr.length-1]));break;
+				case 'leftout':list.removeChild(list.firstChild);break;
+				case 'rightout':list.removeChild(list.lastChild);break;
+			}
+		}else{
+			alert('最多输入60个数字！');
+		}
+	}
+
+	function Out(out,mode){
+		if(out!=undefined){
+			alert((mode=='left'?'左':'右')+'侧出：'+out);
+			adjustArr(mode+'out');
+		}else{
+			alert('当前队列中無數字！');
+		}
+	}
+
+	function inputDetect(){
+		if(!input.value){
+			alert('输入不能为空！');
+		}else if(typeof input.value=='number'){
+			alert('输入不是数字！');
+			input.value=null;
+		}else if(parseInt(input.value)>100||input.value<10){
+			alert('输入10-100的数字');
+			input.value=null;
+		}
+	}
+
+	(function() {
+		var leftin = document.getElementById('left_in');
+		var leftout = document.getElementById('left_out');
+		var rightin = document.getElementById('right_in');
+		var rightout = document.getElementById('right_out');
+
+
+		addHandler(leftin,'click',function(event){
+			inputDetect();
+			if(input.value){
+				arr.unshift(input.value);
+				input.value=null;
+				adjustArr('leftin');
+			}
+		});
+
+
+		addHandler(leftout,'click',function(event){
+			Out(arr.shift(),'left');
+		});
+
+		addHandler(rightout,'click',function(event){
+			Out(arr.pop(),'right');
+		});
+
+		addHandler(rightin,'click',function(event){
+			inputDetect();
+			if(input.value){
+				arr.push(input.value);
+				input.value=null;
+				adjustArr('rightin');
+			}
+		});
+
+	})();
+
+	var sortButton = document.getElementById('sort');
+	addHandler(sortButton,'click',function(){
+		var div_1 = document.getElementById('queue');
+		var cols = div_1.getElementsByTagName('div');
+		var len = cols.length;
+		for(var i=0;i<len;i++){
+			for(var j=0;j+1<len-i;j++){
+				var w1 = parseInt(cols[j].style.height);
+				var w2 = parseInt(cols[j+1].style.height);
+				if(w1>w2){
+					exchangeNode(cols[j],cols[j+1]);
+				}
+			}
+		}
+	});
+
+	function exchangeNode(n1,n2){
+		var parent = n1.parentNode;
+		var tmp1 = n1.cloneNode(true);
+		var tmp2 = n2.cloneNode(true);
+
+		parent.replaceChild(tmp2,n1);
+		parent.replaceChild(tmp1,n2);
+	}
+	var visualButton = document.getElementById('visual');
+	addHandler(visualButton,'click',sortVisualize);
+	function sortVisualize(){
+		var div_1 = document.getElementById('queue');
+		var cols = div_1.getElementsByTagName('div');
+		var len = cols.length;
+
+		for(var i=0;i<len;i++){
+			for(var j=0;j+1<len;j++){
+				if(parseInt(cols[j].style.height)>parseInt(cols[j+1].style.height)){
+					visual(cols[j],cols[j+1]);
+				}
+			}
+		}
+	}
+	function visual(n1,n2){
+		var h1 = parseInt(n1.style.height);
+		var h2 = parseInt(n2.style.height);
+		changeH(n1,h2);
+		changeH(n2,h1);
+	}
+	function changeH(n,h){
+		var h0 = parseInt(n.style.height);
+		if(h>h0){
+			if(h0+3>h){
+				h0 = h;
+			}else{
+				h0 +=3;
+			}
+		}else{
+			if(h0-3<h){
+				h0 = h;
+			}else{
+				h0 -=3;
+			}
+		}
+		n.style.height = h0+'px';
+		setTimeout(function(){changeH(n,h);},1000);
+		//必须要等到当前脚本的同步任务和“任务队列”中已有的事件，全部处理完以后，才会执行setTimeout()指定的任务
+		//setTimeout是设置某个函数在多长的delay后被call，但是什么时候被execute执行是不确定的，必须等到当前任务队列asynchronous queue中所有任务完成后才轮到它
+		//这是由于Javascript中的事件执行是单线程的异步的，JavaScript引擎只有单线程，导致异步的事件排队等待被执行
+		//setTimeInterval是设置某个函数从设置开始每隔多长时间被execute，只有在当没有interval在排队（be queued），才会将interval排入等待的队列，否则就（be dropped）
+	}
+
+
+	</script>
+</body>
+</html>
+
