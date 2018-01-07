@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IFE JavaScript Task 06</title>
+	<meta charset="UTF-8">
+	<!--
+		meta，元信息
+	-->
+</head>
+<body>
+	<label for='input'>Input：</label>
+	<textarea id='input'></textarea>
+
+	<div id='clickArea'>
+		<button type="button" id="left_in">左侧入</button>
+		<button type="button" id="right_in">右侧入</button>
+		<button type="button" id="left_out">左侧出</button>
+		<button type="button" id="right_out">右侧出</button>
+		<button type='button' id = 'search'>查找</button>
+	</div>
+
+	<ul id="queue"></ul>
+
+	<script type="text/javascript" src="event.js"></script>
+	<script type="text/javascript" charset="UTF-8">
+	var arr = [];
+	var input = document.getElementById('input');
+	input.placeholder='请输入：';
+
+	var list = document.getElementById('queue');
+
+	function createItem(value){
+		var txt = document.createTextNode(value);
+		var item = document.createElement('li');
+		item.style.cssText = "display:inline-block;padding:20px;line-height:50px;height:50px;text-align:center;background-color:red;color:white;list-style:none;margin:5px";
+		item.appendChild(txt);
+		return item;
+	}
+
+	function inputDetect(){
+		if(!input.value){
+			alert('输入不能为空！');
+		}
+	}
+
+	(function() {
+		var clickArea = document.getElementById('clickArea');
+		addHandler(clickArea,'click',function(event){
+			var target = event.target;
+			var id = target.id;
+			switch(id){
+				case 'left_in':leftin();break;
+				case 'right_in':rightin();break;
+				case 'left_out':leftout();break;
+				case 'right_out':rightout();break;
+				case 'search':searchFunction();break;
+			}
+		});
+		function leftin(){
+			inputDetect();
+			if(input.value!=null){
+				var array = split();
+				for(var i=0,len=array.length;i<len;i++){
+					var t = array.pop();
+					arr.unshift(t);
+					list.insertBefore(createItem(t),list.firstChild);
+				}
+				input.value=null;
+			}
+		}
+		function leftout(){
+			list.removeChild(list.firstChild);
+		}
+		function rightout(){
+			list.removeChild(list.lastChild);
+		}
+
+		function rightin(){
+			inputDetect();
+			if(input.value!=null){
+				var array = split();
+				for(var i=0,len=array.length;i<len;i++){
+					var t = array.shift();
+					arr.push(t);
+					list.appendChild(createItem(t));
+				}
+				input.value=null;
+			}
+		}
+
+		function split(){
+			var value = input.value;
+			var arr = [];
+			var reg = /[^ ,，/、\r\n.]+/g;
+			var m;
+			while((m=reg.exec(value))!=null){
+				arr.push(m[0]);
+			}
+			return arr;
+		}
+
+		function searchFunction(){
+			inputDetect();
+			search();
+		}
+
+		function search(){
+			var v = input.value;
+			var reg = new RegExp(v,"g");
+			//alert(reg);
+			var lis = document.getElementsByTagName('li');
+			for(var i=0,len=lis.length;i<len;i++){
+				var text = lis[i].innerHTML;
+				var reg = new RegExp(v,"g");
+				try{
+					var m;
+					var s1 = '<span style="color:blue">';
+					var s2 = '</span>';
+					var locs=[];
+					while((m = reg.exec(text))!=null){
+						var loc = m.index;
+						locs.push(loc);
+					}
+					var result='';
+					var l=v.length;
+					var c=0;
+					for(var j=0;j<locs.length;j++){
+						result+=text.slice(c,locs[j])+s1+text.slice(locs[j],locs[j]+l)+s2;
+						c=locs[j]+l;
+					}
+					// alert((locs[j-1]+1)+','+text.length);
+					// alert(text.slice(locs[j-1]+l,text.length));
+
+					result+=text.slice(locs[j-1]+l,text.length);
+					lis[i].innerHTML=result;
+				}catch(ex){
+					continue;
+				}
+			}
+			input.value=null;
+		}
+	})();
+
+	</script>
+</body>
+</html>
