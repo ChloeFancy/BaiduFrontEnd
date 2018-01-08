@@ -45,8 +45,13 @@
 
 	(function() {
 		var clickArea = document.getElementById('clickArea');
+		//事件委托，利用事件冒泡，由于click事件可以冒泡到document，甚至可以给整个页面指定事件处理程序。总之尽可能在DOM树中尽可能高的层次上指定事件处理程序
+		//函数都会占用内存
+		//内存中对象越多性能越差
+		//给每一个元素指定事件处理程序，频繁访问DOM，会延迟整个页面的交互就绪时间
 		addHandler(clickArea,'click',function(event){
-			var target = event.target;
+			var target = event.target||event.srcElement;
+			//分别是DOM方法，和IE的方法
 			var id = target.id;
 			switch(id){
 				case 'left_in':leftin();break;
@@ -88,6 +93,9 @@
 			}
 		}
 
+		//正则表达式
+		//不设置全局标志，每次都只返回第一个匹配项
+		//设置全局标志，每次调用exec()都会继续查找新的匹配项
 		function split(){
 			var value = input.value;
 			var arr = [];
@@ -104,6 +112,12 @@
 			search();
 		}
 
+		//如果字符串无法匹配正则表达式的话
+		//reg.exec(text)是undefined
+		//并且没执行一次reg.test(text),lastIndex都会被改变
+		//reg.exec(',')[0]
+		//Uncaught TypeError: Cannot read property '0' of null
+		//所以采用抛掷异常来处理
 		function search(){
 			var v = input.value;
 			var reg = new RegExp(v,"g");
@@ -128,9 +142,6 @@
 						result+=text.slice(c,locs[j])+s1+text.slice(locs[j],locs[j]+l)+s2;
 						c=locs[j]+l;
 					}
-					// alert((locs[j-1]+1)+','+text.length);
-					// alert(text.slice(locs[j-1]+l,text.length));
-
 					result+=text.slice(locs[j-1]+l,text.length);
 					lis[i].innerHTML=result;
 				}catch(ex){
