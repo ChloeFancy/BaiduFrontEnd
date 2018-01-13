@@ -6,6 +6,15 @@
 	<!--
 		meta，元信息
 	-->
+	<style type="text/css">
+		.item{
+			background-color:red;
+			color:white;
+			margin:2px;
+			display:inline-block;
+			vertical-align:bottom;
+		}
+	</style>
 </head>
 <body>
 
@@ -29,7 +38,7 @@
 
 	function Item(value){
 		var item=document.createElement('div');
-		item.style.cssText = "background-color:red;color:white;margin:2px;display:inline-block;vertical-align:bottom";
+		item.classList.add('item');
 		item.style.width = document.body.clientWidth/60 +'px';
 		item.style.marginTop = (120-value)+'px';
 		item.style.height = value+'px';
@@ -139,42 +148,36 @@
 	}
 	var visualButton = document.getElementById('visual');
 	addHandler(visualButton,'click',sortVisualize);
+
 	function sortVisualize(){
 		var div_1 = document.getElementById('queue');
 		var cols = div_1.getElementsByTagName('div');
 		var len = cols.length;
-
 		for(var i=0;i<len;i++){
-			for(var j=0;j+1<len;j++){
-				if(parseInt(cols[j].style.height)>parseInt(cols[j+1].style.height)){
-					visual(cols[j],cols[j+1]);
+			for(var j=0;j+1<len-i;j++){
+				if(arr[j]>arr[j+1]){
+					visual(j,cols);
+					var t = arr[j];
+					arr[j]=arr[j+1];
+					arr[j+1]=t;
 				}
 			}
 		}
 	}
-	function visual(n1,n2){
-		var h1 = parseInt(n1.style.height);
-		var h2 = parseInt(n2.style.height);
-		changeH(n1,h2);
-		changeH(n2,h1);
+	function visual(num,group){
+		var h1 = arr[num];
+		var h2 = arr[num+1];
+
+		changeH(group[num],h2);
+		changeH(group[num+1],h1);
 	}
+	var timer=0;
 	function changeH(n,h){
-		var h0 = parseInt(n.style.height);
-		if(h>h0){
-			if(h0+3>h){
-				h0 = h;
-			}else{
-				h0 +=3;
-			}
-		}else{
-			if(h0-3<h){
-				h0 = h;
-			}else{
-				h0 -=3;
-			}
-		}
-		n.style.height = h0+'px';
-		setTimeout(function(){changeH(n,h);},1000);
+		var curH = parseInt(n.style.height);
+		timer+=100;
+		setTimeout(function(h1){return function(){n.style.height = h1+'px';n.style.lineHeight = h1+'px';n.style.marginTop = (120-h1)+'px';
+			n.firstChild.nodeValue=h1;}}(h),timer);
+
 		//必须要等到当前脚本的同步任务和“任务队列”中已有的事件，全部处理完以后，才会执行setTimeout()指定的任务
 		//setTimeout是设置某个函数在多长的delay后被call，但是什么时候被execute执行是不确定的，必须等到当前任务队列asynchronous queue中所有任务完成后才轮到它
 		//这是由于Javascript中的事件执行是单线程的异步的，JavaScript引擎只有单线程，导致异步的事件排队等待被执行
