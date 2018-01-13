@@ -11,11 +11,31 @@
 				case 'DLR': DLR(root1);break;
 				case 'LDR': LDR(root1);break;
 				case 'LRD': LRD(root1);break;
+				case 'addNode': addNode(root1);break;
 			}
 		}
 	);
 
 })();
+
+function addNode(r){
+	var iterator = document.createNodeIterator(r,NodeFilter.SHOW_ELEMENT,null,false);
+	var next=iterator.nextNode();
+	do{
+		if(next.children.length==0){
+			var tmp = next;
+			next = iterator.nextNode();
+			var e = document.createElement('div');
+			e.classList.add("newest");
+			tmp.appendChild(e);
+			var e1 = e.cloneNode(true);
+			tmp.appendChild(e1);
+		}else{
+			next = iterator.nextNode();
+		}
+	}while(next!=null);
+}
+
 
 function addHandler(element,type,func){
 	if(element.addEventListener){
@@ -64,10 +84,22 @@ function animation(root1){
 	setTimeout(function(){
 		root1.style.backgroundColor='red';
 	},timer+=500);
-		setTimeout(function(){
+	setTimeout(function(){
 		root1.style.backgroundColor='white';
+		//alert('task queue');
 	},timer+=500);
+	//alert('main thread');
 }
+/*
+		在单线程上，先进行了定时器的设置，即将匿名函数放入任务队列。
+		定时器的设置都设置完了之后，线程再运行任务队列上的任务。
+		setTimeout和递归DLR(...)这些是排在了JS引擎单线程上的主要任务，
+	主要任务完成了，引擎空闲了，再将定时器任务调来运行。
+		结果：alert('main thread');连续地显示7次，再每个节点闪烁后出现alert('task queue');一共七次。
+*/
+
+
+
 
 // function timer(num) {
 

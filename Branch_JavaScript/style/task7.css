@@ -1,38 +1,32 @@
 *{
 	background: white;
 }
-.current{
-	background: red;
-}
-body,.lv0,.lv1{
+body,.lv0{
 	display:flex;
 }
 body{
-	flex-wrap: wrap;
+	flex-direction: column;
 	justify-content: center;
+	align-items: center;
+}
+div{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
 }
 .lv0{
-	height: 500px;
-	flex: 0 0 1000px;
-	justify-content: space-around;
-	border: 1px solid black;
+	height: 550px;
+	width: 70%;
+	border: 1px solid red;
 }
 #bar{
+	flex:auto;
 	height: auto;
 	border: none;
 	margin-top: 20px;
 }
-.lv1{
-	margin: 20px 0;
-	flex:0 0 300px;
-	justify-content: space-around;
-	align-items: center;
-	border: 1px solid black;
-}
-.item{
-	flex:0 0 100px;
-	height: 100px;
-	border: 1px solid black;
-	text-align: center;
-	line-height: 100px;
+.newest{
+	width:40%;
+	height:40%;
+	border:1px solid black;
 }
