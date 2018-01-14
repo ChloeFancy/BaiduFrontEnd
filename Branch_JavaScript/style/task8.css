@@ -9,6 +9,7 @@ body,div{
 }
 body{
 	flex-direction: column;
+	align-items: space-around;
 }
 div{
 	border:1px solid black;
@@ -32,4 +33,10 @@ div div{
 }
 .highlight{
 	background-color: red;
+}
+.chosen{
+	background-color:lightblue;
+}
+button{
+	flex:0 0 auto;
 }
