@@ -1,0 +1,35 @@
+body{
+	margin:0;
+	padding: 0;
+}
+body,div{
+	display: flex;
+	align-items: center;
+	flex-wrap:nowrap;
+}
+body{
+	flex-direction: column;
+}
+div{
+	border:1px solid black;
+	padding: 10px;
+	margin:5px;
+	flex:1 1 0;
+	background: white;
+	/*初始宽度是0，flex-grow和flex-shrink是1，则能够按照内容自动伸缩*/
+}
+#root{
+	flex:1 1 300px;
+	width:auto;
+}
+#buttons{
+	width:50%;
+	justify-content: space-around;
+	border: none;
+}
+div div{
+	height: 30%;
+}
+.highlight{
+	background-color: red;
+}
