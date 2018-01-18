@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>任务二：表单（二）多个表单项的动态校验</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style/task2.css">
+</head>
+<body>
+	<form>
+		<div class="formElement">
+			<label for="name">名称</label>
+			<input type="text" name="name" id="name"  required>
+			<div class="hint">必填，长度为4-16个字符</div>
+		</div>
+
+		<div class="formElement">
+			<label for="password">密码</label>
+			<input type="password" name="password" id="password" required>
+			<div class="hint">必填，长度为4-16个字符，不允许有空格</div>
+		</div>
+
+		<div class="formElement">
+			<label for="password">密码确认</label>
+			<input type="password" name="password" id="passwordCheck" required>
+			<div class="hint">必填，再次输入相同密码</div>
+		</div>
+
+		<div class="formElement">
+			<label for="email">邮箱</label>
+			<input type="text" name="email" id="email" pattern="[a-zA-Z0-9_]+@[a-zA-Z0-9_]+.com" required>
+			<div class="hint">必填，填入xxxx@xxx.com格式的正确格式</div>
+		</div>
+
+		<div class="formElement">
+			<label for="tel">手机</label>
+			<input type="text" name="tel" id="tel" pattern="1[0-9]{10}" required>
+			<div class="hint">必填，填入11位手机号</div>
+		</div>
+
+		<div class="formElement">
+		<button type="submit">提交</button>
+		</div>
+	</form>
+	<script type="text/javascript" src="scripts/task2.js"></script>
+</body>
+</html>
