@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>任务三：表单（三）联动</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		.hidden{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<form id="identity">
+		<label for="student">在校生</label>
+		<input type="radio" name="isStudent" id="student" checked>
+		<label for="notStudent">非在校生</label>
+		<input type="radio" name="isStudent" id="notStudent">
+	</form>
+
+	<form id="collegeInput">
+		<label for="school">学校</label>
+		<select id="city">
+			<option value="Beijing">北京</option>
+			<option value="Shanghai">上海</option>
+			<option value="guangdong">广东</option>
+		</select>
+		<select id="college">
+			<optgroup label="北京">
+				<option value="beijingU">北京大学</option>
+				<option value="tsinghuaU">清华大学</option>
+				<option value="beihangU">北京航空航天大学</option>
+			</optgroup>
+			<optgroup label="上海">
+				<option value="shangjiaoU">上海交通大学</option>
+				<option value="shanghaiU">上海大学</option>
+				<option value="fudanU">复旦大学</option>
+			</optgroup>
+
+			<optgroup label="广东">
+				<option value="zhongshanU">中山大学</option>
+				<option value="jinanU">暨南大学</option>
+				<option value="huananligongU">华南理工大学</option>
+			</optgroup>
+
+		</select>
+	</form>
+
+	<form id="companyInput" class="hidden">
+		<label for="company">就职公司</label>
+		<input type="text" name="company" id="company">
+	</form>
+	<script type="text/javascript" src="scripts/task3.js"></script>
+</body>
+</html>
