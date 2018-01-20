@@ -2,15 +2,14 @@ body{
 	margin:0;
 	padding: 0;
 }
-body,div{
+div{
 	display: flex;
 	align-items: center;
 	flex-wrap:nowrap;
 }
-body{
-	flex-direction: column;
-	align-items: space-around;
-}
+/*
+	去掉了body{flex-direction:column;}后，root元素在浏览器视口宽度缩小后就会将内容溢出到屏幕左边了
+ */
 div{
 	border:1px solid black;
 	padding: 10px;
@@ -21,10 +20,9 @@ div{
 }
 #root{
 	flex:1 1 300px;
-	width:auto;
+
 }
 #buttons{
-	width:50%;
 	justify-content: space-around;
 	border: none;
 }

@@ -125,25 +125,29 @@
 			var lis = document.getElementsByTagName('li');
 			for(var i=0,len=lis.length;i<len;i++){
 				var text = lis[i].innerHTML;
-				var reg = new RegExp(v,"g");
+				var reg = new RegExp('('+v+')',"g");
+				alert(text);
 				try{
-					var m;
 					var s1 = '<span style="color:blue">';
 					var s2 = '</span>';
-					var locs=[];
-					while((m = reg.exec(text))!=null){
-						var loc = m.index;
-						locs.push(loc);
-					}
-					var result='';
-					var l=v.length;
-					var c=0;
-					for(var j=0;j<locs.length;j++){
-						result+=text.slice(c,locs[j])+s1+text.slice(locs[j],locs[j]+l)+s2;
-						c=locs[j]+l;
-					}
-					result+=text.slice(locs[j-1]+l,text.length);
-					lis[i].innerHTML=result;
+					lis[i].innerHTML=text.replace(reg,s1+"$1"+s2);
+					// var m;
+					// var s1 = '<span style="color:blue">';
+					// var s2 = '</span>';
+					// var locs=[];
+					// while((m = reg.exec(text))!=null){
+					// 	var loc = m.index;
+					// 	locs.push(loc);
+					// }
+					// var result='';
+					// var l=v.length;
+					// var c=0;
+					// for(var j=0;j<locs.length;j++){
+					// 	result+=text.slice(c,locs[j])+s1+text.slice(locs[j],locs[j]+l)+s2;
+					// 	c=locs[j]+l;
+					// }
+					// result+=text.slice(locs[j-1]+l,text.length);
+					// lis[i].innerHTML=result;
 				}catch(ex){
 					continue;
 				}
