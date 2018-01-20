@@ -7,48 +7,66 @@
 		.hidden{
 			display: none;
 		}
+		#info{
+			width:300px;
+			margin:10px auto;
+		}
+		input[type=radio]{
+			margin: 10px;
+		}
+		#identity{
+			margin-bottom: 30px;
+		}
+
+
 	</style>
 </head>
 <body>
-	<form id="identity">
-		<label for="student">在校生</label>
-		<input type="radio" name="isStudent" id="student" checked>
-		<label for="notStudent">非在校生</label>
-		<input type="radio" name="isStudent" id="notStudent">
-	</form>
+	<div id="info">
+		<form id="identity">
 
-	<form id="collegeInput">
-		<label for="school">学校</label>
-		<select id="city">
-			<option value="Beijing">北京</option>
-			<option value="Shanghai">上海</option>
-			<option value="guangdong">广东</option>
-		</select>
-		<select id="college">
-			<optgroup label="北京">
-				<option value="beijingU">北京大学</option>
-				<option value="tsinghuaU">清华大学</option>
-				<option value="beihangU">北京航空航天大学</option>
-			</optgroup>
-			<optgroup label="上海">
-				<option value="shangjiaoU">上海交通大学</option>
-				<option value="shanghaiU">上海大学</option>
-				<option value="fudanU">复旦大学</option>
-			</optgroup>
+			<input type="radio" name="isStudent" id="student" checked>
+			<label for="student">在校生</label>
 
-			<optgroup label="广东">
-				<option value="zhongshanU">中山大学</option>
-				<option value="jinanU">暨南大学</option>
-				<option value="huananligongU">华南理工大学</option>
-			</optgroup>
+			<input type="radio" name="isStudent" id="notStudent">
+			<label for="notStudent">非在校生</label>
+		</form>
 
-		</select>
-	</form>
+		<form id="collegeInput">
+			<label for="school">学校</label>
+			<select id="city">
+				<option value="Beijing" name="Beijing">北京</option>
+				<option value="Shanghai" name="Shanghai">上海</option>
+				<option value="guangdong" name="guangdong">广东</option>
+			</select>
+			<select id="college">
+				<optgroup label="北京" id="Beijing">
+					<option value="Beijing_beijingU">北京大学</option>
+					<option value="Beijing_tsinghuaU">清华大学</option>
+					<option value="Beijing_beihangU">北京航空航天大学</option>
+				</optgroup>
+				<optgroup label="上海" id="Shanghai">
+					<option value="Shanghai_shangjiaoU">上海交通大学</option>
+					<option value="Shanghai_shanghaiU">上海大学</option>
+					<option value="Shanghai_fudanU">复旦大学</option>
+				</optgroup>
 
-	<form id="companyInput" class="hidden">
-		<label for="company">就职公司</label>
-		<input type="text" name="company" id="company">
-	</form>
+				<optgroup label="广东" id="guangdong">
+					<option value="guangdong_zhongshanU">中山大学</option>
+					<option value="guangdong_jinanU">暨南大学</option>
+					<option value="guangdong_huananligongU">华南理工大学</option>
+				</optgroup>
+
+			</select>
+		</form>
+
+		<form id="companyInput" class="hidden">
+			<label for="company">就职公司</label>
+			<input type="text" name="company" id="company">
+		</form>
+	</div>
+
 	<script type="text/javascript" src="scripts/task3.js"></script>
+	<script type="text/javascript" src="scripts/task3-bind1.js"></script>
 </body>
 </html>

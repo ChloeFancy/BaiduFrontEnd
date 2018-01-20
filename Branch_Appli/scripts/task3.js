@@ -16,16 +16,7 @@
 	});
 
 })();
-(function(){
-	var selectCity = document.getElementById('city');
-	var selectCollege = document.getElementById('college');
-	var optgroups = selectCollege.getElementsByTagName('optgroup');
-	addHandler(selectCity,'change',function(event){
-		var target = event.target||event.srcElement;
-		var selectedIndex = selectCity.selectedIndex;
-		optgroups[selectedIndex].children[0].selected = true;
-	});
-})();
+
 function addHandler(element,type,func){
 	if(element.addEventListener){
 		element.addEventListener(type,func,false);
