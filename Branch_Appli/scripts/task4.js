@@ -9,29 +9,32 @@
 		switch(info){
 			case'GO':go();break;
 			//anticlockwise 90
-			// case'TUNLEF':deg+=-90;item.style.transform='rotate('+deg+'deg)';break;
-			case'TUNLEF':deg-=90;newRule(0,-90);break;
+			case'TUNLEF':newRule(-90);break;
 			//clockwise 90
-			case'TUNRIG':deg+=90;newRule(0,90);break;
+			case'TUNRIG':newRule(90);break;
 			//clockwise 180
-			case'TUNBAC':deg+=180;newRule(0,180);break;
+			case'TUNBAC':newRule(180);break;
 		}
 	},false);
-	function newRule(deg0,deg1){
+	function newRule(deltaDeg){
 		//alert('from '+deg0+' to '+deg1);
 		sheet.removeRule(0);
-		sheet.insertRule("@-webkit-keyframes mymove{from{-webkit-transform:rotate("+deg0
-			+"deg)}to{-webkit-transform:rotate("+deg1+"deg)}}",0);
-		var wrapper = document.createElement('div');
-		wrapper.className = 'anim';
-		item.parentNode.appendChild(wrapper);
-		wrapper.appendChild(item);
+		sheet.insertRule("@-webkit-keyframes mymove{from{-webkit-transform:rotate("+deg
+			+"deg)}to{-webkit-transform:rotate("+(deg+=deltaDeg)+"deg)}}",0);
+		// var wrapper = document.createElement('div');
+		// wrapper.className = 'anim';
+		// item.parentNode.appendChild(wrapper);
+		// wrapper.appendChild(item);
+		item.classList.add('anim');
 		setTimeout(function(){
-			item.parentNode.parentNode.appendChild(item);
-			item.parentNode.removeChild(item.parentNode.firstChild);
+			// item.parentNode.parentNode.appendChild(item);
+			// item.parentNode.removeChild(item.parentNode.firstChild);
+			item.classList.remove('anim');
 			var rules = sheet.rules;
-			sheet.insertRule("#item{transform:rotate("+deg+"deg)}",rules.length-1);
-			rules.remove(rules.length-1);
+			// alert(rules[rules.length-1]);
+			// sheet.deleteRule(rules.length-1);
+			item.style.transform="rotate("+deg+"deg)";
+			// sheet.insertRule("#item{transform:rotate("+deg+"deg)}", rules.length);
 		},1000);
 	}
 	function go(){

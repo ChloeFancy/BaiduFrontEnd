@@ -1,24 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>任务四：听指令的小方块（一）</title>
+	<title>任务五：听指令的小方块（二）</title>
 	<meta charset="utf-8">
 	<style type="text/css">
-		@-webkit-keyframes mymove{
+		@-webkit-keyframes translatemove{
 			from{}
 			to{}
 		}
-		.anim{
-			animation:mymove 1;
+		body{
+			margin:0;
+			padding:0;
+		}
+		#item{
+			position: absolute;
+			margin-left:-999px;
+		}
+		.translate{
+			animation:translateMove 1;
 			animation-duration:2s;
 		}
 		.left{
 			border-right:36px solid red;
 			border-left:9px solid blue;
 		}
+		table,form{
+			float: left;
+		}
 		table{
+			position: relative;
 			border-collapse:collapse;
-			margin: 0 auto;
+			margin-right: 20px;
 		}
 		td{
 			width:45px;
@@ -49,7 +61,9 @@
 	</style>
 </head>
 <body>
+
 	<table>
+	<div id="item" style="height: 45px;" class="left"></div>
 		<tr>
 			<td></td>
 			<td>1</td>
@@ -93,7 +107,7 @@
 			<td>3</td>
 			<td></td>
 			<td></td>
-			<td><div id="item" style="height: 45px;" class="left"></div></td>
+			<td></td>
 			<td></td>
 			<td></td>
 			<td></td>
@@ -195,11 +209,18 @@
 		</tr>
 	</table>
 	<form>
-		<button type="button" id="TUNLEF">左</button>
-		<button type="button" id="TUNRIG">右</button>
-		<button type="button" id="TUNBAC">向后</button>
-		<button type="button" id="GO">前进</button>
+		<button type="button" id="BEGIN">开始</button>
+
+		<fieldset>
+			<legend>DOM方法移动</legend>
+			<button type="button" id="TRALEF">左</button>
+			<button type="button" id="TRARIG">右</button>
+			<button type="button" id="TRABOT">下</button>
+			<button type="button" id="TRATOP">上</button>
+		</fieldset>
 	</form>
-	<script type="text/javascript" src="scripts/task4.js"></script>
+
+	<script type="text/javascript" src="scripts/DOMMovement.js"></script>
+	<script type="text/javascript" src="scripts/task5.js"></script>
 </body>
 </html>
