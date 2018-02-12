@@ -14,30 +14,62 @@
 	var realLeft;
 	var realTop;
 	var deltaY,deltaX;
-	popWindow.addEventListener('mousedown',function(event){
+	var width,height;
+	function getMouseLocation(event){
 		var computedStyle = document.defaultView.getComputedStyle(popWindow);
-		var width = parseInt(computedStyle.width);
-		var height = parseInt(computedStyle.height);
+		width = parseInt(computedStyle.width);
+		height = parseInt(computedStyle.height);
 
 		if(typeof realLeft!='number'){
 			realLeft = parseInt(computedStyle.left)-0.5*width;
 			realTop = parseInt(computedStyle.top)-0.5*height;
 		}
+
 		deltaY = event.clientY-realTop;
 		deltaX = event.clientX-realLeft;
+		return [deltaX,deltaY];
+	}
+	popWindow.addEventListener('mousedown',function(event){
+		var x = getMouseLocation(event)[0];
+		var y = getMouseLocation(event)[1];
 
 		function move(event){
-			popWindow.style.top = event.clientY+'px';
-			popWindow.style.left = event.clientX+'px';
-			popWindow.style.transform = "translate(-"+deltaX+"px, -"+deltaY+"px)";
-			realTop = event.clientY-deltaY;
-			realLeft = event.clientX-deltaX;
-			first=false;
-
+			if(width-x>5&&height-y>5){
+				popWindow.style.top = event.clientY+'px';
+				popWindow.style.left = event.clientX+'px';
+				popWindow.style.transform = "translate(-"+x+"px, -"+y+"px)";
+				realTop = event.clientY-y;
+				realLeft = event.clientX-x;
+				popWindow.style.cursor = "default";
+			}
 		}
 		popWindow.addEventListener('mousemove',move,false);
 		popWindow.addEventListener('mouseup',function(event){
 			popWindow.removeEventListener('mousemove',move);
+		},false);
+	},false);
+
+	popWindow.addEventListener('mousemove',function(event){
+		var x = getMouseLocation(event)[0];
+		var y = getMouseLocation(event)[1];
+		if(width-x<5&&height-y<5){
+			popWindow.style.cursor = "se-resize";
+
+			function scale(e){
+				var Px = e.clientX;
+				var Py = e.clientY;
+				popWindow.style.width = (Px-realLeft+5)+'px';
+				popWindow.style.height = (Py-realTop+5)+'px';
+			}
+			popWindow.addEventListener('mousedown',function(e){
+				popWindow.addEventListener('mousemove',scale,false);
+			},false);
+
+		}else{
+			popWindow.style.cursor = "default";
+		}
+		popWindow.addEventListener('mouseup',function(){
+			popWindow.removeEventListener('mousemove',scale);
 		},false);
 	},false);
 
