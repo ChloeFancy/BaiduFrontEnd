@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>任务九：使用HTML/CSS实现一个复杂页面</title>
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+	<link rel="stylesheet" type="text/css" href="style/sideBar.css">
+	<link rel="stylesheet" type="text/css" href="style/window.css">
+</head>
+<body>
+	<header>
+		<div id="icon1"><div id="icon2"></div></div>
+		<div id="searchBox"><img src="images/search.png"><input type="text" name="search"></div>
+		<a id="logBox" href="#"><img src="images/log.png">登录</a>
+	</header>
+	<main>
+		<div id="sideBar">
+			<div id="usr">
+				<div id="photo"></div>
+				<div id="usrName">CHloeFancy</div>
+			</div>
+			<div id="usrData">
+				<div id="collect">110</br>收藏</div><div id="fans">99</br>粉丝</div>
+			</div>
+
+			<ul>
+				<li>
+					<img src="images/baobiao.png" alt="">个人报表
+					<ul>
+						<li>
+							<img src="images/zhedie.png" alt="" style="transform: rotate(90deg);"><img src="images/wenjian.png" alt="">文件一
+							<ul>
+								<li><img src="images/wendang.png" alt="">文档一</li>
+								<li><img src="images/wendang.png" alt="">文档二</li>
+							</ul>
+						</li>
+						<li><img src="images/zhedie.png" alt=""><img src="images/wenjian.png" alt="">文件二</li>
+						<li><img src="images/zhedie.png" alt=""><img src="images/wenjian.png" alt="">文件三
+							<ul>
+								<li><img src="images/wendang.png" alt="">文档一</li>
+								<li><img src="images/wendang.png" alt="">文档二</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li><img src="images/shoucang.png" alt="">个人收藏</li>
+				<li><img src="images/fenxiang.png" alt="">我的分享</li>
+				<li><img src="images/tuku.png" alt="">图库</li>
+				<li><img src="images/tuku.png" alt="">成长记录</li>
+				<li><img src="images/zhanghu.png" alt="">账户信息</li>
+			</ul>
+		</div>
+		<div id="window">
+			<div id="dir">C站&nbsp;/&nbsp;个人报表&nbsp;/&nbsp;文件一／<span>文档一</span></div>
+			<div id="info">
+				<div id="searchItemInfo">
+					<div>
+						<label for="searchItem">查询项</label>
+						<select name="searchItem" id="searchItem">
+							<option>第一项</option>
+							<option>第二项</option>
+							<option>第三项</option>
+							<option>第四项</option>
+						</select>
+					</div>
+
+					<div>
+						<div id="sellbuy">
+							<div>
+								<label for="buyerList">买方</label>
+								<select name="buyerList" id="buyerList">
+									<option>第一项</option>
+									<option>第二项</option>
+									<option>第三项</option>
+									<option>第四项</option>
+								</select>
+							</div>
+							<div>
+								<label for="sellerList">卖方</label>
+								<select name="sellerList" id="sellerList">
+									<option>第一项</option>
+									<option>第二项</option>
+									<option>第三项</option>
+									<option>第四项</option>
+								</select>
+							</div>
+						</div>
+						<div class="search">
+							<img src="images/exchange.png">
+						</div>
+
+					</div>
+
+					<div>
+						<div style="margin-bottom: 4px; ">
+							<label for="searchItem">日期</label>
+							<select name="searchItem" id="searchItem">
+								<option>第一项</option>
+								<option>第二项</option>
+								<option>第三项</option>
+								<option>第四项</option>
+							</select>
+							<label for="searchItem">总耗时</label>
+							<select name="searchItem" id="searchItem">
+								<option>第一项</option>
+								<option>第二项</option>
+								<option>第三项</option>
+								<option>第四项</option>
+							</select>
+						</div>
+
+						<div>
+							<label for="searchItem">人数</label>
+							<select name="searchItem" id="searchItem">
+								<option>第一项</option>
+								<option>第二项</option>
+								<option>第三项</option>
+								<option>第四项</option>
+							</select>
+							<label for="searchItem">成交项</label>
+							<select name="searchItem" id="searchItem">
+								<option>第一项</option>
+								<option>第二项</option>
+								<option>第三项</option>
+								<option>第四项</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="search">
+						<button type="button">
+							搜索
+						</button>
+					</div>
+
+
+				</div>
+
+				<div id="history">
+					<div class="arrow">
+						<div class="right"></div>
+					</div><div class="hisRes">
+						<div class="time">10:00 am</div>
+						<div class="price"><span>￥</span>1200</div>
+					</div><div class="hisRes">
+						<div class="time">10:00 am</div>
+						<div class="price"><span>￥</span>1200</div>
+					</div><div class="hisRes">
+						<div class="time">10:00 am</div>
+						<div class="price"><span>￥</span>1200</div>
+					</div><div class="hisRes">
+						<div class="time">10:00 am</div>
+						<div class="price"><span>￥</span>1200</div>
+					</div><div class="hisRes">
+						<div class="time">10:00 am</div>
+						<div class="price"><span>￥</span>1200</div>
+					</div><div class="hisRes">
+						<div class="time">10:00 am</div>
+						<div class="price"><span>￥</span>1200</div>
+					</div><div class="arrow">
+						<div class="left"></div>
+					</div><div class="hisQue">
+						<img src="images/historyRes.png">
+						历史查询
+					</div>
+				</div>
+
+				<div id="statistics">
+					<div id="title">2016年4月份统计</div>
+					<div id="dealNums">
+						<div class="dealNum">
+							<div><div>13311</div><div>成交量</div></div>
+							<div></div>
+						</div>
+						<div class="dealNum"></div>
+						<div class="dealNum"></div>
+						<div class="dealNum"></div>
+					</div>
+
+					<!-- <div id="dealNumsFlex">
+						利用flex布局，不设置margin-right
+						<div class="dealNum">
+							<div><div>13311</div><div>成交量</div></div>
+							<div></div>
+						</div>
+						<div class="dealNum"></div>
+						<div class="dealNum"></div>
+						<div class="dealNum"></div>
+					</div> -->
+				</div>
+
+				<div id="program">
+					<div id="programInfo">
+						<div class="programTitle">第一组项目</div>
+						<div class="programContent">
+							<ul>
+								<li>项目一</li>
+								<li>项目一</li>
+								<li>项目一</li>
+								<li>项目一</li>
+								<li>项目一</li>
+							</ul>
+							<div>
+								<table>
+									<tr>
+										<td>购买材料</td>
+										<td>购买材料</td>
+										<td>购买材料</td>
+										<td>购买材料</td>
+									</tr>
+									<tr>
+										<td>购买材料</td>
+										<td>购买材料</td>
+										<td>购买材料</td>
+										<td>购买材料</td>
+									</tr>
+									<tr>
+										<td>购买材料</td>
+										<td>购买材料</td>
+										<td>购买材料</td>
+										<td>购买材料</td>
+									</tr>
+									<tr>
+										<td>购买材料</td>
+										<td>购买材料</td>
+										<td>购买材料</td>
+										<td>购买材料</td>
+									</tr>
+									<tr>
+										<td>购买材料</td>
+										<td>购买材料</td>
+										<td>购买材料</td>
+										<td>购买材料</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div id="programSearch">
+						<div class="programTitle">第一组项目</div>
+						<div class="programSearchInfo">
+							<div>
+								<div class="programSearchInfoTitle">标题</div>
+								<div class="programName">项目报表三</div>
+							</div>
+
+							<div id="priceMaster">
+								<div>
+									<div class="programSearchInfoTitle">价格</div>
+									<div class="programName">￥158</div>
+								</div>
+								<div>
+									<div class="programSearchInfoTitle">负责人</div>
+									<div class="programName">小A</div>
+								</div>
+							</div>
+							<div>
+								<div class="programSearchInfoTitle">详细信息</div>
+								<div class="programName">该项目目前负责人是......</div>
+							</div>
+							<div>
+								<input type="checkBox" name="contract">
+								<label for="contract">遵守保密协议</label>
+								<button>搜索</button>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

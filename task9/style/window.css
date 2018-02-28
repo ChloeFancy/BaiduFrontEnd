@@ -1,0 +1,367 @@
+#dir{
+	height: 31px;
+	padding: 10px 30px;
+	box-sizing: border-box;
+	background-color: #fff;
+	color: #b7b7b7;
+	font-size: 12.278px;
+  	font-family: "SimHei";
+}
+#dir span{
+	color: #aec5dc;
+}
+#info{
+	padding: 19px 60px;
+}
+#searchItemInfo{
+	background-color: #fff;
+	box-sizing: border-box;
+	padding: 15px 31px;
+	overflow: hidden;
+	height: 86px;
+
+}
+#searchItemInfo select{
+	font-family: HeiTi;
+	font-size: 12px;
+	height: 26px;
+	width: 71px;
+	box-sizing: border-box;
+	vertical-align: middle;
+}
+#searchItemInfo select+label{
+	margin-left: 20px;
+}
+#searchItemInfo label{
+  font: normal 12px/1em "SimHei";
+  /*font : [font-style||font-variant]?font-size[/line-height]? font-family*/
+  color: rgb(170, 170, 170);
+  margin-right: 15px;
+}
+#searchItemInfo>div{
+	float: left;
+	margin-right: 37px;
+}
+/*#searchItemInfo>div:nth-child(1)>div{
+	float: left;
+	display: inline-block;
+}*/
+#searchItemInfo>div>div>div:first-child{
+	margin-bottom: 4px;
+}
+#searchItemInfo #sellbuy{
+	float: left;
+}
+#searchItemInfo #sellbuy select{
+	width: 121px;
+}
+
+#searchItemInfo img{
+	display: inline-block;
+
+}
+#searchItemInfo button{
+	color: #fff;
+	width: 51px;
+	height: 26px;
+	text-align: center;
+	display: inline-block;
+	vertical-align: middle;
+	background-color: #388ac1;
+	border: none;
+	cursor: pointer;
+}
+
+#searchItemInfo .search{
+	display: inline-block;
+	line-height: calc(86px - 30px);
+	vertical-align: middle;
+}
+
+#history{
+	margin-top: 9px;
+	margin-bottom: 22px;
+	overflow: hidden;
+}
+#history .arrow,#history .hisRes,#history .hisQue{
+	float: left;
+	height: 65px;
+	background-color: white;
+}
+#history .arrow{
+	width: 31px;
+	margin-right: 4px;
+	position: relative;
+	cursor: pointer;
+}
+
+#history .hisRes{
+	box-sizing: border-box;
+	width: 111px;
+	margin-right: 4px;
+	padding-bottom: 12px;
+	padding-top: 15px;
+}
+#history .hisRes div{
+	text-align: center;
+}
+#history .hisRes .time{
+	font: 12px Microsoft YaHei;
+}
+#history .hisRes .price{
+	font: 21px Microsoft YaHei;
+	color: #ec6500;
+}
+#history .hisRes .price span{
+	font: 15px Microsoft YaHei;
+	color: #bcbcbc;
+}
+#history .hisQue{
+	width: 123px;
+	font: 12px Microsoft YaHei;
+	color: #535353;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#history .hisQue img{
+	margin-right: 11px;
+}
+
+#history .arrowWrapper{
+	width: 10px;
+	height: 17px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+
+}
+
+#history .right,#history .left{
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	transform-origin: 0 0;
+}
+#history .right{
+	top: 24px;
+	left: 21px;
+	transform: rotate(45deg);
+	border-left: 2px solid;
+	border-bottom: 2px solid;
+	border-color: #bcbcbc;
+
+}
+#history .left{
+	top: 32.5px;
+	left: 1px;
+	transform: rotate(-45deg);
+	border-right: 2px solid;
+	border-bottom: 2px solid;
+	border-color: #bcbcbc;
+}
+
+#statistics #title{
+	font: 12px Microsoft YaHei;
+	color: #535353;
+}
+#statistics #dealNums{
+	overflow: hidden;
+}
+#statistics #dealNums>div{
+	float: left;
+	width: 199px;
+	height: 71px;
+	box-sizing: border-box;
+	background-color: #fff;
+	border-left: 4px solid #43b29e;
+	margin-right: 29px;
+	padding-right: 15px;
+}
+#statistics #dealNums div:last-child{
+	margin-right: 0;
+}
+#statistics .dealNum>div{
+	float: left;
+	box-sizing: border-box;
+	height: 100%;
+	padding-top: 20px;
+	padding-left: 8px;
+	position: relative;
+}
+#statistics .dealNum>div>div{
+  font: 12px HeiTi;
+  color: #323333;
+}
+#statistics .dealNum>div>div:last-child{
+  font: 10px HeiTi;
+  color: #aaa;
+  position: absolute;
+  bottom: 17px;
+}
+#statistics .dealNum>div:last-child{
+	width: 61px;
+	height: 47px;
+	background-color: #43b29e;
+	float: right;
+	box-sizing: border-box;
+
+	margin-top: 12px;
+}
+
+#statistics #dealNumsFlex{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+#statistics #dealNumsFlex .dealNum{
+	/*float: left;*/
+	width: 199px;
+	height: 71px;
+	box-sizing: border-box;
+	background-color: #fff;
+	border-left: 4px solid #43b29e;
+	/*margin-right: 29px;*/
+	padding-right: 15px;
+}
+#program{
+	overflow: hidden;
+	margin-top: 14px;
+}
+#program #programInfo,#program #programSearch{
+	height: calc(316px + 41px);
+	border-radius: 10px;
+	border: 1px solid #d7d8da;
+	background-color: #fff;
+}
+
+#program #programInfo{
+	width: 529px;
+	float: left;
+}
+#program #programSearch{
+	width: 349px;
+	float: right;
+}
+#program .programTitle{
+	background-color: #f4f5f7;
+	padding: 16px 21px;
+	color: #aaaaaa;
+	font: 12px HeiTi;
+	border-radius: 10px 10px 0 0;
+	border-bottom: 1px solid #d7d8da;
+}
+
+#program .programContent{
+	padding: 13px 20px;
+	position: relative;
+
+}
+
+#program .programContent ul{
+	list-style: none;
+	overflow: hidden;
+	z-index: 100;
+	position: absolute;
+}
+#program .programContent ul li{
+	z-index: 100;
+	float: left;
+	box-sizing: border-box;
+	height: 36.5px;
+	width: 85px;
+	border-radius: 5px 5px 0 0;
+	background-color: #eee;
+	margin-right: 3px;
+	color: #535353;
+	font: 12px Microsoft YaHei;
+	text-align: center;
+	line-height: 36px;
+
+}
+#program .programContent ul li:hover,#program .programContent ul li:first-child{
+	z-index: 100;
+	background-color: #fff;
+	border: 1px solid #cacbcb;
+	border-bottom: 0px;
+}
+#program .programContent>div{
+	z-index: 1;
+	height: 243px;
+	width: 491px;
+	position: absolute;
+	top: 48px;
+	left: 20px;
+	border: 1px solid #cacbcb;
+}
+#program .programContent table{
+	border-collapse: collapse;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+#program .programContent table td{
+	padding: 11px 12px;
+	border: 1px solid #aaa;
+	font: 12px SongTi;
+	color: #999dae;
+}
+
+#program #programSearch .programSearchInfo{
+	padding: 17px 35px;
+}
+#program #programSearch .programSearchInfo>div{
+	font: 12px Microsoft YaHei;
+	line-height: 16.57px;
+	border-bottom: 1px solid #e7e7e7;
+	box-sizing: border-box;
+}
+
+#program #programSearch .programSearchInfo .programSearchInfoTitle{
+	color: #c3c2c2;
+	padding-left: 17px;
+}
+
+#program #programSearch .programSearchInfo .programName{
+	color: #535353;
+	padding-bottom: 12px;
+	padding-left: 17px;
+}
+
+#priceMaster>div{
+	display: inline-block;
+}
+#priceMaster>div:first-child{
+	border-right: 1px solid #e7e7e7;
+	box-sizing: border-box;
+	width: 95px;
+}
+
+#program #programSearch .programSearchInfo>div:nth-child(3){
+	height: 146px;
+}
+
+#program #programSearch .programSearchInfo>div:last-child{
+	border: 0;
+	padding-top: 14px;
+	color: #c3c2c2;
+}
+#program #programSearch .programSearchInfo input[type='checkBox']{
+	width: 14px;
+	height: 14px;
+	border: 0;
+	vertical-align: text-bottom;
+}
+#program #programSearch .programSearchInfo button{
+	width: 56px;
+	height: 26px;
+	text-align: center;
+	vertical-align: middle;
+	color: #fff;
+	background-color: #388ac1;
+	border: 0;
+	float: right;
+}
