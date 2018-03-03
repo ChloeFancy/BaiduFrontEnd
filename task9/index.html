@@ -63,7 +63,7 @@
 						</select>
 					</div>
 
-					<div>
+					<div style="position: relative;">
 						<div id="sellbuy">
 							<div>
 								<label for="buyerList">买方</label>
@@ -84,9 +84,11 @@
 								</select>
 							</div>
 						</div>
-						<div class="search">
+						<div class="search" id="imgWrapper">
+
 							<img src="images/exchange.png">
 						</div>
+
 
 					</div>
 
@@ -189,7 +191,7 @@
 				</div>
 
 				<div id="program">
-					<div id="programInfo">
+					<div id="programInfo" class="card">
 						<div class="programTitle">第一组项目</div>
 						<div class="programContent">
 							<ul>
@@ -235,7 +237,7 @@
 							</div>
 						</div>
 					</div>
-					<div id="programSearch">
+					<div id="programSearch" class="card">
 						<div class="programTitle">第一组项目</div>
 						<div class="programSearchInfo">
 							<div>
@@ -266,8 +268,46 @@
 
 					</div>
 				</div>
+				<div>
+					<div id="calendar"  class="card">
+						<div class="programTitle">日历</div>
+						<div id="calendarContent">
+							<div>
+								<select>
+									<option>2016年</option>
+								</select>
+								<select>
+									<option>3月</option>
+								</select>
+								<select>
+									<option>12日</option>
+								</select>
+								<button>返回今天</button>
+							</div>
+
+							<div>
+								一二三四五六日<!-- <span></span> -->
+							</div>
+							<div id="genCalendar"></div>
+						</div>
+					</div>
+					<div id="carRank"  class="card">
+						<div class="programTitle">汽车行业品牌榜</div>
+						<div>
+							<table>
+								<tr>
+									<td>排名</td>
+									<td>品牌</td>
+									<td>搜索指数</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</main>
 </body>
+<script type="text/javascript" src="scripts/calendar.js"></script>
+<script type="text/javascript" src="scripts/carRank.js"></script>
 </html>
